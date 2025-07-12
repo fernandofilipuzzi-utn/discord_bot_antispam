@@ -45,7 +45,6 @@ public class Bot
 
   public Bot()
   {
-    //_token = Environment.GetEnvironmentVariable("DISCORD_BOT_TOKEN"); // Nombre de tu variable de entorno
     var configuration = new ConfigurationBuilder()
         .SetBasePath(Directory.GetCurrentDirectory())
         .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -57,16 +56,17 @@ public class Bot
     {
       Console.WriteLine("¡Error! La variable de entorno 'DISCORD_BOT_TOKEN' no se encontró o está vacía.");
       Console.WriteLine("Por favor, establece la variable de entorno antes de ejecutar el bot.");
-      Environment.Exit(1); // Sale del programa si no hay token
+      Environment.Exit(1); 
     }
   }
+  
   // seguimiento de actividad del usuario
   private readonly Dictionary<ulong, UserActivity> _userActivity = new Dictionary<ulong, UserActivity>();
   public async Task RunAsync()
   {
     var config = new DiscordSocketConfig()
     {
-      GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent // Add MessageContent here
+      GatewayIntents = GatewayIntents.AllUnprivileged | GatewayIntents.MessageContent // agregar mensajes de respuesta
     };
     _client = new DiscordSocketClient(config);
     _client.Log += LogAsync;

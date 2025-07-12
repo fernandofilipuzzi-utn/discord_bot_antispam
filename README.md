@@ -51,6 +51,10 @@ dotnet run
 
 ## notas, en caso de usar variables de entornos.
 
+```csharp
+  _token = Environment.GetEnvironmentVariable("DISCORD_BOT_TOKEN");
+```
+
 ```
 set DISCORD_BOT_TOKEN=TOKEN
 dotnet run
