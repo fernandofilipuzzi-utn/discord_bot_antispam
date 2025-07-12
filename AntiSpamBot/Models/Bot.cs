@@ -215,10 +215,11 @@ public class Bot
   {
     try
     {
-      // Eliminar el mensaje
+      // elimina el mensaje
       await message.DeleteAsync();
 
-      // Enviar advertencia al usuario
+     /*
+      // advertencia al usuario
       var embed = new EmbedBuilder()
           .WithTitle("⚠️ Mensaje Bloqueado")
           .WithDescription($"{message.Author.Mention}, tu mensaje ha sido eliminado por contener archivos no permitidos.")
@@ -227,11 +228,12 @@ public class Bot
           .Build();
 
       await message.Channel.SendMessageAsync(embed: embed);
+      */
 
-      // Log para moderadores
+      // avisa a los moderadores
       await LogToModerationChannel(message, "Mensaje spam eliminado");
 
-      // Incrementar contador de infracciones
+      // actualiza infracciones del usuario
       await IncrementUserViolations(message.Author.Id, message);
     }
     catch (Exception ex)
