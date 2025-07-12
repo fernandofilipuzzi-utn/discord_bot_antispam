@@ -1,0 +1,22 @@
+[Unit]
+Description=Discord Anti-Spam Bot
+After=network.target
+
+[Service]
+# configurar path_publish:
+# dotnet publish -c Release -r linux-arm -o ./publish
+WorkingDirectory=path_publish
+
+# Reemplaza AntiSpamBot.dll con el nombre de tu archivo DLL principal (normalmente el nombre de tu proyecto)
+# configurar path_dotnet, which dotnet
+ExecStart=path_dotnet AntiSpamBot.dll
+
+# configurar usuario
+User=usuairo
+Group=usuario
+Restart=always
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
