@@ -59,7 +59,7 @@ public class Bot
       Environment.Exit(1); 
     }
   }
-  
+
   // seguimiento de actividad del usuario
   private readonly Dictionary<ulong, UserActivity> _userActivity = new Dictionary<ulong, UserActivity>();
   public async Task RunAsync()
@@ -329,7 +329,7 @@ public class Bot
 
   private async Task LogToModerationChannel(SocketUserMessage message, string details)
   {
-    // Buscar canal de moderación (opcional)
+    // canal de modelaración
     var guild = (message.Channel as SocketGuildChannel)?.Guild;
     if (guild == null) return;
 
