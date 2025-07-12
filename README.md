@@ -25,8 +25,6 @@ dotnet add package Microsoft.Extensions.Configuration.Binder
 dotnet run
 ```
 
-
-
 ## notas, en caso de usar variables de entornos.
 
 ```
